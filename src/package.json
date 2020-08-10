@@ -1,0 +1,20 @@
+{
+  "name": "ursc",
+  "version": "1.0.0",
+  "description": "Sidecar container that implements user registration/login logic by jwt.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "sidecar",
+    "login"
+  ],
+  "author": "rpaezbas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.5"
+  }
+}
