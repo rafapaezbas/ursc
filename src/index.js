@@ -24,23 +24,15 @@ const login = async (req, res) => {
 };
 
 const check = async (req, res) => {
-	const user = await lib.validAuth(req);
-	if(user != undefined){
-		return res.send(user);
-	} else {
+	try{
+		const user = await lib.validAuth(req);
+		res.send({ user: user });
+	}catch(error){
 		res.sendStatus(422);
 	}
 };
 
 app.use(express.json());
-app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header(
-		"Access-Control-Allow-Headers",
-		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
-	);
-	next();
-});
 app.post("/user/register", register);
 app.post("/user/login", login);
 app.get("/user/check", check);
